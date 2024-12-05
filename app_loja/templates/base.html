@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        
+
+        .rodape {
+            background-color: rgb(218, 155, 166);
+            color: white;
+            padding: 20px;
+            width: 100%;
+            
+            
+        }
+        .conteudopagina {
+            min-height: calc(100vh - 70px); /* Ajuste conforme necessário para a altura do seu rodapé */
+            padding-bottom: 20px; /* Espaçamento desejado entre o conteúdo e o rodapé */
+        }
+
+        .nav-item a {
+            
+            border-radius: 20px;
+            background-color: rgb(224, 193, 203);
+            text-transform: uppercase;
+            margin-right: 10px;
+        }
+
+        .navbar-nav .nav-link {
+        color: salmon !important; /* Cor do texto no estado normal */
+        font-weight: bold;
+    }
+
+        .nav-link.active {
+            color: rgb(252, 94, 147)!important; /* Cor do texto quando ativo */
+            font-weight: bold;
+            
+        }
+        .btnsair {
+          border: none;
+          background-color: rgb(224, 193, 203);
+          border-radius: 20px;
+        }
+    
+        
+
+
+
+
+.navbar-toggler {
+  border: none;
+  
+}
+
+.navbar-collapse {
+    padding-left: 15px;  /* Ajusta a distância da esquerda */
+    padding-right: 15px; /* Ajusta a distância da direita */
+}
+
+
+
+        
+@media (max-width: 767px) {
+  * {
+    max-width: 100%;  /* Garante que todos os elementos não excedam a largura da tela */
+}
+  body {
+     
+     overflow-x: hidden;
+   }
+
+  .btnsair {
+          width: 380px;
+          margin: 0px 10px 0px 0px;
+          font-size: 16px;
+          padding: 8px 16px;
+        }
+          .navbar-toggler-icon {
+  background-color:  rgb(224, 193, 203);/* Cor do ícone */
+}
+  .navbar-nav {
+    padding-top: 20px; /* Adiciona padding no topo do menu em dispositivos móveis */
+  }
+  .navbar-nav .nav-item {
+  margin: 5px 0; /* Dá um espaçamento entre os itens */
+}
+  
+.navbar-nav .nav-link {
+  padding: 8px 16px; /* Aumenta o espaçamento dos itens do menu */
+  font-size: 18px;    /* Ajusta o tamanho da fonte */
+}
+  /* Ajuste nos links do menu para ficar mais claro e espaçado */
+  .nav-link {
+    color: #bc2a8d !important; /* Cor dos links */
+    font-weight: bold;
+  }
+
+  .nav-link:hover {
+    color: #fff !important; /* Cor de hover dos links */
+    background-color: #bc2a8d;
+    border-radius: 10px;
+  }
+
+  /* Alinhamento da navbar para que a versão móvel ocupe 100% da largura */
+  .navbar-collapse {
+    background-color: rgb(247, 237, 239); /* Cor de fundo do menu expandido */
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 0;
+    }
+}
+
+  .btnWPP {
+    position: fixed; /* Fixa o botão na tela */
+    bottom: 20px;    /* Distância do fundo da tela */
+    right: 20px;     /* Distância da direita da tela */
+    background-color: #25D366; /* Cor do WhatsApp */
+    border-radius: 50%; /* Deixa o botão redondo */
+    width: 80px;      /* Define a largura do botão */
+    height: 80px;     /* Define a altura do botão */
+    padding: 0;       /* Remove o padding interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar o botão */
+    z-index: 1000;    /* Garante que o botão ficará acima de outros elementos */
+    transition: transform 0.3s ease; /* Animação suave ao passar o mouse */
+    color: white;
+    border: none;
+    font-size: 30px;   /* Ajuste o tamanho do ícone dentro do botão */
+    display: flex;
+    justify-content: center; /* Centraliza o ícone horizontalmente */
+    align-items: center; /* Centraliza o ícone verticalmente */
+}
+
+.btnWPP:hover {
+    transform: scale(1.1); /* Aumenta o tamanho do botão ao passar o mouse */
+}
+
+.btnWPP:hover::after {
+    content: "Fale Conosco pelo WhatsApp"; /* Texto a ser exibido */
+    position: absolute;
+    right: 0;
+    background-color: #25D366;
+    color: white;
+    padding: 8px;
+    margin-bottom: 20px;
+    margin-right: 100px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap; /* Garante que o texto não quebre em várias linhas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para o texto */
+    animation: fadeIn 0.3s forwards; /* Animação para suavizar o aparecimento */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+    </style>
+    
+
+    <title>Gabi Confeitaria</title>
+  </head>
+
+  <body>
+
+    
+      <a href="https://wa.me/5538999784355?text=Ol%C3%A1+%2C+vim+pelo+seu+link+no+Instagram+" target="_blank">
+      <button class="btnWPP">
+        <i class="fa-brands fa-whatsapp"></i>
+      </button>
+      </a>
+    
+
+
+    {% if user.is_authenticated %}
+  <!-- Navbar para usuários LOGADOS -->
+
+
+  <nav class="navbar navbar-expand-lg navbar-nav" style="background-color: rgb(247, 237, 239);">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="" > 
+        <img src="https://i.imgur.com/aTJSm7w.png" alt="..." height="40">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"><i style="color: white; margin-top: 5px;" class="fa-solid fa-bars"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/produtos/' %}active{% endif %}" href="{% url 'produtos' %}">Portfólio</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/quemsomos/' %}active{% endif %}" href="{% url 'quemsomos' %}">Quem Somos</a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/contato/' %}active{% endif %}" href="{% url 'contato' %}">Contato</a>
+          </li>
+        </ul>
+      
+        
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/pedidos/' %}active{% endif %}" href="{% url 'pedidos' %}">
+              <i class="fa-solid fa-list"></i> Meus Pedidos
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/perfil/' %}active{% endif %}" href="{% url 'perfil' %}">
+              <i class="fa-solid fa-user"></i> Perfil
+            </a>
+          </li>
+
+
+          <form method="post" action="{% url 'logout' %}" style="display:inline;">
+            {% csrf_token %}
+            
+            <button type="submit" class="btnsair btn-link nav-link">
+                <i class="fa-solid fa-right-to-bracket"></i> SAIR
+            </button>
+        </form>
+        </ul>
+      </div>
+    </div>
+  </nav>   
+
+{% else %}
+
+ <!-- Navbar para VISITANTES -->
+    <nav class="navbar navbar-expand-lg navbar-nav" style="background-color: rgb(247, 237, 239);">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="" > 
+            <img src="https://i.imgur.com/aTJSm7w.png" alt="..." height="40">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i style="color: white; margin-top: 5px;" class="fa-solid fa-bars"></i></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/produtos/' %}active{% endif %}" href="{% url 'produtos' %}">Portfólio</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/quemsomos/' %}active{% endif %}" href="{% url 'quemsomos' %}">Quem Somos</a>
+              </li>
+
+
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/contato/' %}active{% endif %}" href="{% url 'contato' %}">Contato</a>
+              </li>
+
+            </ul>
+
+
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/queropedir/' %}active{% endif %}" href="{% url 'queropedir' %}">
+                  <i class="fa-solid fa-list"></i> Encomendar
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == '/politica-seguranca/' %}active{% endif %}" href="{% url 'politica_seguranca' %}">
+                    Política de Segurança
+                </a>
+            </li>
+            
+
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == '/login/' %}active{% endif %}" href="{% url 'login' %}">
+                      <i class="fa-solid fa-right-to-bracket"></i> Fazer Login
+                    </a>
+            </ul>
+          </div>
+        </div>
+      </nav>   
+
+      {% endif %}
+
+      <div class="conteudopagina">
+        
+        {% block content %}
+        {% endblock %}
+    </div>
+      
+
+      <div class="rodape">
+    
+        <a href="https://www.instagram.com/gabii_confeitaria/" class="btn btn-primary" style="background-color: #bc2a8d; border-color: #bc2a8d;" target="_blank">
+          <i class="fab fa-instagram"></i> Siga-nos no Instagram
+      </a>
+
+        <p>&copy; 2024 GabiConfeitaria. </br> Todos os direitos reservados.</p>
+
+        <p>Formas de Pagamento</p>
+        <img src="https://cdn.shopify.com/s/files/1/0655/0696/7773/files/BANDERIAS.png?v=1669918376" alt="Formas de Pagamento" width="150">
+      </div>
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    
+    
+
+
+
+
+  </body>
+</html>

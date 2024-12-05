@@ -1,0 +1,111 @@
+<!-- alterar_senha.html -->
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Senha</title>
+    
+    <style>
+        body {
+            text-align: center; /* Centralizar o conteúdo */
+            background-color: #f4f4f4; /* Cor de fundo para melhor contraste */
+        }
+
+        .alterarsenha-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: rgb(224, 193, 203);
+            color: salmon;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background-color: rgb(252, 94, 147);
+        }
+
+        .login-link {
+            margin-top: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="alterarsenha-container">
+        <h1>Alterar Senha</h1>
+
+        <form method="post">
+            {% csrf_token %}
+
+            
+
+            <!-- Campo para a senha atual -->
+            <label for="id_old_password">Senha Atual:</label>
+            <input type="password" name="old_password" id="id_old_password" required>
+
+            <!-- Campo para a nova senha -->
+            <label for="id_new_password1">Nova Senha:</label>
+            <input type="password" name="new_password1" id="id_new_password1" required>
+
+            <!-- Campo para confirmar a nova senha -->
+            <label for="id_new_password2">Confirme a Nova Senha:</label>
+            <input type="password" name="new_password2" id="id_new_password2" required>
+
+            {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-warning" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+     {% endif %}
+
+
+            {% if form.errors %}
+            <ul>
+                {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+            
+            <button type="submit">Alterar Senha</button>
+        </form>
+
+        <a href="{% url 'perfil' %}">Voltar para o Perfil</a>
+    </div>
+
+</body>
+</html>
+
+{% endblock %}

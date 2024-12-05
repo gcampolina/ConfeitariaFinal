@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            text-align: center; /* Centralizar o conteúdo */
+            background-color: #f4f4f4; /* Cor de fundo para melhor contraste */
+        }
+        .container {
+            max-width: 800px;
+        }
+        .text-primary {
+            color: #d2691e; /* Tom mais doce, como caramelo */
+        }
+        .text-secondary {
+            color: #8b4513; /* Tom marrom para títulos */
+        }
+        .text-muted {
+            color: #6c757d; /* Texto secundário */
+        }
+        h1, h4 {
+            font-weight: bold;
+        }
+        .shadow {
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container my-5 p-5 bg-white rounded shadow">
+        <h1 style="margin-bottom: 20px;">Sobre Nós</h1>
+    
+        <section class="mb-4">
+            <h4 class="text-secondary">Nossa História</h4>
+            <p class="text-muted">A Gabi Confeitaria é um sonho que se transformou em realidade. Fundada com amor e paixão pela
+                confeitaria, nossa jornada começou com a missão de criar bolos que não apenas agradassem o paladar, mas
+                também aquecessem o coração.</p>
+        </section>
+    
+        <section class="mb-4">
+            <h4 class="text-secondary">Nossa Missão</h4>
+            <p class="text-muted">Nossa missão é simples: fazer o mundo mais doce, um bolo de cada vez. Queremos ser a escolha
+                natural quando se trata de celebrar momentos especiais ou simplesmente satisfazer seu desejo por algo
+                delicioso.</p>
+        </section>
+    
+        <section class="mb-4">
+            <h4 class="text-secondary">Nossa Dedicação</h4>
+            <p class="text-muted">Cada bolo que produzimos é uma obra-prima única, resultado de nossa dedicação à qualidade e à
+                criatividade. Usamos os melhores ingredientes e técnicas tradicionais, combinadas com um toque de
+                inovação, para surpreender seu paladar.</p>
+        </section>
+    
+        <section class="mb-4">
+            <h4 class="text-secondary">Nossa Família</h4>
+            <p class="text-muted">Na Gabi Confeitaria, nossos clientes não são apenas clientes; eles fazem parte da nossa família.
+                Agradecemos a cada um de vocês por confiar em nós para tornar seus momentos especiais ainda mais
+                memoráveis.</p>
+        </section>
+    
+        <section>
+            <h4 class="text-secondary">Seja Parte da Nossa História</h4>
+            <p class="text-muted">Queremos que você faça parte da nossa história doce. Explore o nosso site, descubra nossos bolos
+                irresistíveis e deixe a Gabi Confeitaria fazer parte dos seus momentos mais doces.</p>
+        </section>
+    </div>
+</body>
+</html>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            text-align: center;
+            /* Centralizar o conteúdo */
+            background-color: #f4f4f4;
+            /* Cor de fundo para melhor contraste */
+        }
+
+        form label[for="id_detalhes"],
+        label[for="id_data_de_entrega"] {
+            display: block;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        form #id_detalhes,
+        #id_data_de_entrega {
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Estilo do formulário */
+        .formpedido {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        /* Estilo para os campos do formulário */
+        form .form-group {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+
+        }
+
+
+        form select#id_segmento,
+        form select#id_massa,
+        form select#id_recheio {
+            width: calc(33.33% - 10px);
+            padding: 10px;
+            box-sizing: border-box;
+            display: inline-block;
+            vertical-align: top;
+            margin-right: 10px;
+            background-color: #ffb6c1;
+            /* Cor de fundo desejada (rosa) */
+            border: 1px solid #ffb6c1;
+            /* Cor da borda desejada (rosa) */
+            border-radius: 5px;
+            color: #fff;
+            /* Cor do texto (branco) */
+        }
+
+
+
+
+
+        /* Estilo para o botão de enviar */
+        form button {
+            background-color: rgb(224, 193, 203);
+            color: salmon;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        form button:hover {
+            background-color: rgb(252, 94, 147);
+        }
+
+        form label {
+            text-align: center;
+        }
+
+        /* Estilo para as mensagens de sucesso ou aviso */
+        .alert {
+            color: #155724;
+            /* Cor do texto da mensagem de sucesso */
+            background-color: #d4edda;
+            /* Cor de fundo da mensagem de sucesso */
+            border: 1px solid #c3e6cb;
+            /* Cor da borda da mensagem de sucesso */
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Encomendar Pedido</h1>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <form class="formpedido" method="post">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="id_segmento" style="text-transform: uppercase;font-weight: bold;">Escolha o Segmento:</label>
+            {{ form.segmento }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_massa" style="text-transform: uppercase;font-weight: bold;">Escolha a Massa:</label>
+            {{ form.massa }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_recheio" style="text-transform: uppercase;font-weight: bold;">Escolha o Recheio:</label>
+            {{ form.recheio }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_data_de_entrega" style="text-transform: uppercase;font-weight: bold;">Selecione uma Data de
+                Entrega:</label>
+            {{ form.data_de_entrega }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_detalhes" style="text-transform: uppercase;font-weight: bold;">Descreva os Detalhes do
+                pedido:</label>
+            {{ form.detalhes }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_contato" style="text-transform: uppercase;font-weight: bold;">Telefone para contato:</label>
+            {{ form.contato }}
+        </div>
+
+        <button type="submit">Enviar Pedido</button>
+    </form>
+</body>
+
+</html>
+
+{% endblock %}

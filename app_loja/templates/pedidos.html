@@ -1,0 +1,154 @@
+    {% extends 'base.html' %}
+    {% block content %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Link para um arquivo de estilo externo (opcional) -->
+        <!-- <link rel="stylesheet" href="caminho_para_seus_estilos.css"> -->
+
+        <style>
+            body {
+                text-align: center;
+                background-color: #f4f4f4;
+            }
+
+
+            .novobtn-container {
+                text-align: right;
+                margin-right: 20px;
+                margin-left: 20px;
+            }
+
+            .novobtn {   
+                background-color: rgb(35, 175, 70);
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: bold;
+                text-transform: uppercase;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+            .novobtn:hover {
+                background-color: rgb(9, 119, 37);
+            }
+
+            .excluirbtn {
+                background-color: rgb(230, 59, 59);
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: bold;
+                text-transform: uppercase;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+
+
+            .excluirbtn:hover {
+                background-color: rgb(163, 42, 42);
+            }
+
+            
+
+            .content-area {
+                background-color: #fff;
+                display: inline-block; /* Exibir produtos em linha */
+                margin: 20px auto; /* Espaçamento entre produtos */
+                border: 1px solid #ddd; /* Borda ao redor de cada produto */
+                padding: 10px; /* Espaçamento interno dentro de cada produto */
+                width: 350px; /* Largura fixa para cada produto (ajuste conforme necessário) */
+                max-height: 100%; 
+                overflow: hidden;
+                border-radius: 10px;
+                vertical-align: top; /* Alinhar na parte superior do contêiner pai */
+                box-sizing: border-box; /* Incluir borda e padding na largura e altura total */
+            }
+            
+            .numero-pedido {
+                font-size: 1.5em; /* Tamanho de fonte maior para o número do pedido */
+                font-weight: bold;
+                text-transform: uppercase;
+                color: salmon;
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+        
+        
+        <div class="novobtn-container">
+            <a href="{% url 'novopedido' %}">
+                <button class="novobtn"><i class="fa-solid fa-plus"></i> Novo pedido</button>
+            </a>
+        </div>
+        
+        <h4 style="text-transform: uppercase; text-align: center;">Meus Pedidos:</h4>
+        
+        {% if lista_de_pedidos %}
+<ul>
+    {% for pedido in lista_de_pedidos %}
+    <div class="content-area">
+    <li>
+        <strong class="numero-pedido">Pedido # {{ pedido.id }}</strong><br>
+        <strong>Segmento:</strong> {{ pedido.segmento }}<br>
+        <strong>Massa:</strong> {{ pedido.massa }}<br>
+        <strong>Recheio:</strong> {{ pedido.recheio }}<br>
+        <strong>Data de Entrega:</strong> {{ pedido.data_de_entrega }}<br>
+        <strong>Detalhes:</strong> {{ pedido.detalhes }}<br>
+        <!-- Formulário para excluir o pedido -->
+        <form action="{% url 'excluir_pedido' pedido.id %}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este pedido?');">
+            {% csrf_token %}
+            <button type="submit" class="excluirbtn">Excluir Pedido</button>
+        </form>
+    </li>
+    </div>
+    {% endfor %}
+</ul>
+{% else %}
+    <p>Você ainda não possui nenhum pedido.</p>
+{% endif %}
+        
+    </body>
+
+    </html>
+
+    <script>
+        function excluirPedido(pedidoId) {
+            // Confirmar se o usuário realmente deseja excluir o pedido
+            if (confirm('Tem certeza que deseja excluir este pedido?')) {
+                // Enviar uma requisição AJAX para excluir o pedido
+                fetch(`/excluir_pedido/${pedidoId}/`, {
+                    method: 'POST',  // ou 'DELETE', dependendo da sua configuração
+                    headers: {
+                        'X-CSRFToken': '{{ csrf_token }}',  // Adicione o token CSRF para proteção contra CSRF
+                    },
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Recarregar a página após a exclusão (ou você pode atualizar a lista de pedidos sem recarregar a página)
+                        window.location.reload();
+                    } else {
+                        console.error('Falha ao excluir pedido:', response.statusText);
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao excluir pedido:', error);
+                });
+            }
+        }
+    </script>
+
+    {% endblock %}

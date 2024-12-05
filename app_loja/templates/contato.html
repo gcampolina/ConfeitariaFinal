@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            text-align: center; /* Centralizar o conteúdo */
+            background-color: #f4f4f4; /* Cor de fundo para melhor contraste */
+        }
+        .row {
+            width: 1000px;
+            justify-content: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            max-width: 800px;
+        }
+        .text-primary {
+            color: #d2691e; /* Tom de caramelo */
+        }
+        .text-secondary {
+            color: #8b4513; /* Marrom suave */
+        }
+        .text-muted {
+            color: #6c757d; /* Cinza para texto auxiliar */
+        }
+        h1, h4 {
+            font-weight: bold;
+        }
+        .shadow {
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="container my-5 p-5 bg-white rounded shadow">
+        <h1 style="margin-bottom: 20px;">Área para Contato</h1>
+        <p class="text-center text-muted">Tem alguma dúvida ou quer saber mais sobre nossos serviços? Entre em contato conosco, será um prazer atender você!</p>
+    
+        <div class="row mt-5">
+            <!-- Informações de Contato -->
+            <div class="col-md-6 mb-4">
+                <h4 class="text-secondary">Informações de Contato</h4>
+                <p><strong>Endereço:</strong> Rua das Flores, 123 - Centro, Belo Horizonte, MG</p>
+                <p><strong>Telefone:</strong> (31) 98765-4321</p>
+                <p><strong>Email:</strong> contato@gabiconfeitaria.com</p>
+                <p><strong>Horário de Atendimento:</strong> Segunda a Sexta, 9h - 18h</p>
+            </div>
+    
+            <!-- Formulário de Contato -->
+            
+        </div>
+    </div>
+    
+</body>
+</html>
+
+
+
+
+
+{% endblock %}

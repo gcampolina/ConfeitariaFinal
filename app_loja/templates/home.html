@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produtos</title>
+
+  <!-- Link para um arquivo de estilo externo (opcional) -->
+  <!-- <link rel="stylesheet" href="caminho_para_seus_estilos.css"> -->
+
+  <style>
+   
+    body {
+      text-align: center;
+      background-color: #f4f4f4;
+      overflow-x: hidden;
+    }
+
+    #carouselExampleIndicators img {
+      width: 100%;
+      /* Define a largura da imagem para ocupar 100% do contêiner do carrossel */
+      height: 300px;
+      /* Define a altura da imagem conforme necessário */
+      object-fit: cover;
+      /* Garante que a imagem cubra completamente o espaço alocado, mantendo as proporções */
+    }
+
+
+    .card {
+      width: 18rem;
+      margin-left: 20px;
+    }
+
+    .card-img-top {
+            width: 100%; /* Ajusta a largura da imagem para ocupar 100% do contêiner */
+            height: 250px; /* Ajuste a altura conforme necessário */
+            object-fit: cover; /* Garante que a imagem cubra completamente o espaço alocado, mantendo as proporções */
+        }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://i.imgur.com/1VDFrBf.jpeg" class="d-block w-100" alt="Imagem 1"
+          style="object-fit: cover; object-position: top;">
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.imgur.com/DL1FUhz.png" class="d-block w-100" alt="Imagem 2" style="object-fit: cover;">
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.imgur.com/XgAK1bu.jpeg"
+          class="d-block w-100" alt="Imagem 3" style="object-fit: cover; object-position: top;">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
+  </div>
+
+  <div style="text-align: center; margin-top: 20px;">
+    <h4 style="text-transform: uppercase;">Bem-vindo(a) à Gabi Confeitaria!</h4>
+    <p>
+      Ficamos muito felizes em ter você por aqui, e que tal saborear nossos bolos incrivelmente saborosos,
+      feitos com amor e dedicação?</p>
+    <p>
+      Cada fatia é uma experiência única, repleta de sabores autênticos e texturas irresistíveis.
+      Explore nossas opções deliciosas, dos clássicos às criações exclusivas.</p>
+
+    <p>Faça parte da nossa família de amantes de bolos e deixe a Gabi Confeitaria adoçar a sua vida. </p>
+
+    <p>Você é mais do que bem-vinda(o) aqui!</p>
+  </div>
+
+
+  <div class="row justify-content-center">
+    <!-- Debutantes -->
+    <div class="card col-md-4">
+        <img src="https://i.imgur.com/X2UM49E.png" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Debutantes</h5>
+            <p class="card-text">Celebre os 15 anos de uma jovem com um bolo elegante, doce e inesquecível. Um bolo que vai marcar essa transição tão especial, tornando a festa de debutante ainda mais mágica e cheia de significado.</p>
+        </div>
+    </div>
+
+    <!-- Casamento -->
+    <div class="card col-md-4">
+      <img src="https://i.imgur.com/1JV9Ysk.png" class="card-img-top" alt="...">
+      <div class="card-body">
+          <h5 class="card-title">Casamento</h5>
+          <p class="card-text">Transforme o seu grande dia em algo ainda mais especial com um bolo que, além de delicioso, simboliza o amor, a união e a felicidade. Um bolo perfeito para eternizar um dos momentos mais importantes da sua vida.</p>
+      </div>
+    </div>
+
+    <!-- Batizado -->
+    <div class="card col-md-4">
+      <img src="https://i.imgur.com/sblPAcV.png" class="card-img-top" alt="...">
+      <div class="card-body">
+          <h5 class="card-title">Batizado</h5>
+          <p class="card-text">Comemore a chegada de uma nova vida com um bolo delicado e encantador, que representará a pureza e a bênção desse momento único. Um bolo doce para celebrar o começo de uma jornada cheia de amor e fé.</p>
+      </div>
+    </div>
+
+    <!-- Aniversário -->
+    <div class="card col-md-4">
+      <img src="https://i.imgur.com/NeanswN.png" class="card-img-top" alt="...">
+      <div class="card-body">
+          <h5 class="card-title">Aniversário</h5>
+          <p class="card-text">Deixe-nos fazer parte da celebração de um novo ano de vida, criando um bolo que se tornará o centro das atenções e um símbolo de alegria, diversão e momentos inesquecíveis ao lado das pessoas que você ama.</p>
+      </div>
+    </div>
+
+</div>
+  
+
+
+</body>
+
+</html>
+
+
+
+
+
+{% endblock %}

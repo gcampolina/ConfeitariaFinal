@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+
+    <style>
+        body {
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .produto {
+            display: inline-block;
+            margin: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 280px;
+            max-height: 100%; 
+            overflow: hidden;
+            border-radius: 10px;
+            vertical-align: top;
+            box-sizing: border-box;
+        }
+
+        .descricao-produto {
+            max-height: 100%;
+            overflow-y: auto;
+            word-wrap: break-word;
+        }
+
+        .imgproduto {
+            max-width: 100%;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .search-button {
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        form button {
+            background-color: rgb(224, 193, 203);
+            color: salmon;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        form button:hover {
+            background-color: rgb(252, 94, 147);
+        }
+
+        form input {
+            padding: 10px 20px;  
+        }
+
+
+    </style>
+</head>
+<body>
+    <h4 style="margin-top: 15px;">Portfólio Gabi Confeitaria</h4>
+
+    <div class="search-container">
+        <form method="get" action="{% url 'produtos' %}">
+            <input type="text" name="q" placeholder="Pesquisar pelo produto">
+            <button type="submit" class="search-button">Pesquisar</button>
+        </form>
+    </div>
+
+    {% for produto in lista_de_produtos %}
+    <div class="produto">
+        <img class="imgproduto" src="{{ produto.imagem.url }}" alt="{{ produto.imagem }}">
+        <h4>{{ produto.nome }}</h4>
+        <p class="descricao-produto">{{ produto.descricao }}</p>
+        <h4 style="font-weight: bold; font-family: cursive;">R$ {{ produto.preco }}</h4>
+    </div>
+    {% endfor %}
+
+</body>
+</html>
+
+{% endblock %}

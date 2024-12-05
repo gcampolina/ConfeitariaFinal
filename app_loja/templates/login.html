@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Link para um arquivo de estilo externo (opcional) -->
+    <!-- <link rel="stylesheet" href="caminho_para_seus_estilos.css"> -->
+    
+    <style>
+        body {
+            text-align: center; /* Centralizar o conteúdo */
+            background-color: #f4f4f4; /* Cor de fundo para melhor contraste */
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: rgb(224, 193, 203);
+            color: salmon;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background-color: rgb(252, 94, 147);
+        }
+
+        .signup-link {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h1>Área de Login</h1>
+        
+
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            
+            <label for="id_username">Usuário:</label>
+            <input type="text" name="username" id="username" required>
+            
+            <label for="id_password">Senha:</label>
+            <input type="password" name="senha" id="senha" required>
+
+            {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+     {% endif %}
+            
+            <button type="submit">Entrar</button>
+        </form>
+    
+        <p class="signup-link">Não tem uma conta? <a href="{% url 'cadastro' %}">Cadastre-se</a></p>
+    </div>
+       
+
+</body>
+</html>
+
+{% endblock %}
+

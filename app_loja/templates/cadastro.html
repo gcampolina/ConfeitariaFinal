@@ -1,0 +1,102 @@
+<!-- cadastro.html -->
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    
+    <style>
+        body {
+            text-align: center; /* Centralizar o conteúdo */
+            background-color: #f4f4f4; /* Cor de fundo para melhor contraste */
+        }
+
+        .cadastro-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: rgb(224, 193, 203);
+            color: salmon;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background-color: rgb(252, 94, 147);
+        }
+
+        .login-link {
+            margin-top: 10px;
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="cadastro-container">
+        <h1>Área de Cadastro</h1>
+
+        <form action="{% url 'cadastro' %}" method="POST">
+            {% csrf_token %}
+            
+            <label for="name">Nome Completo:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            
+            <label for="senha2">Confirmação de Senha:</label>
+            <input type="password" id="senha2" name="senha2" required>
+
+            {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-warning" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+     {% endif %}
+            
+            <button type="submit">Cadastrar</button>
+        </form>
+        
+        <p class="login-link">Já tem uma conta? <a href="{% url 'login' %}">Faça Login</a></p>
+    </div>
+
+</body>
+</html>
+
+{% endblock %}
