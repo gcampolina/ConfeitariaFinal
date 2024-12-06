@@ -1,12 +1,11 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from app_loja import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('', include('app_loja.urls')),
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('produtos/', views.produtos, name='produtos'),
