@@ -13,6 +13,7 @@ from django.conf import settings
 def home(request):
     return render(request,'home.html')
 
+
 def produtos(request):
 
     termo_pesquisa = request.GET.get('q')

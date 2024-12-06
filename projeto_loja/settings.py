@@ -15,16 +15,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-SECURE_SSL_REDIRECT = False
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')  # Informa ao Django que está atrás de um proxy que usa HTTPS
-
-# Se você estiver em um ambiente de produção, adicione mais configurações para segurança
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_HSTS_SECONDS = 31536000  # Ativa HTTP Strict Transport Security (HSTS)
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
 
 
 # Permitindo cookies para HTTP e HTTPS
